@@ -6,12 +6,9 @@
     "start": "node server.js"
   },
   "dependencies": {
-    "body-parser": "*",
     "cookie-parser": "*",
     "debug": "*",
     "express": "*",
-    "http-errors": "*",
-    "jade": "*",
-    "morgan": "*"
+    "http-errors": "*"
   }
 }
