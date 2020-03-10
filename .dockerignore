@@ -1,5 +1,6 @@
 *
 node_modules
+!haproxy-src
 !*.json
 !*.js
 !*.sh

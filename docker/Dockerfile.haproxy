@@ -1,0 +1,17 @@
+###
+# docker build -f docker/Dockerfile.haproxy -t bucker/haproxy-node .
+# docker run -it --net=rede1  --privileged --rm --name haproxy-syntax-check bucker/haproxy-node haproxy -c -f /usr/local/etc/haproxy/haproxy.cfg
+# docker run --net=rede1 --rm -dit -p 8090:80 --name haproxy bucker/haproxy-node
+###
+
+FROM haproxy:alpine
+
+RUN apk add --no-cache rsyslog openrc
+RUN rc-update -v add rsyslog boot
+
+COPY haproxy-src/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
+COPY haproxy-src/log-haproxy.conf /etc/rsyslog.d/haproxy.conf
+
+COPY docker-entrypoint.sh /
+
+CMD ["/docker-entrypoint.sh"]
