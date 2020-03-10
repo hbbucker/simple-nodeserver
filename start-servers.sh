@@ -12,4 +12,4 @@ docker run --net=rede1 --rm -dit -e NODE_PORT=3006 -p 3006:3006 --name nodeserve
 docker run --net=rede1 --rm -dit -e NODE_PORT=3007 -p 3007:3007 --name nodeserver07 bucker/node-simpleserver:latest
 docker run --net=rede1 --rm -dit -e NODE_PORT=3008 -p 3008:3008 --name nodeserver08 bucker/node-simpleserver:latest
 
-docker run --net=rede1 --privileged --rm -dit -p 8090:80 -v ~/logs:/var/log -v /etc/localtime:/etc/localtime:ro --name haproxy bucker/haproxy-node
+docker run --net=rede1 --privileged --rm -dit -p 80:80 -v ~/logs:/var/log -v /etc/localtime:/etc/localtime:ro --name haproxy bucker/haproxy-node

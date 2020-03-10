@@ -13,13 +13,9 @@ RUN mkdir -p ${DIRAPP}
 COPY *.js ${DIRAPP}
 COPY *.json ${DIRAPP}
 COPY *.sh ${DIRAPP}
-#COPY node_modules/* /deployments/app/node_modules/
 
 RUN npm install
 
 RUN  ls -l /deployments/app
 
 CMD [ "npm", "start" ]
-
-#RUN chmod a+x /deployments/app/start.sh
-#ENTRYPOINT [ "/deployments/app/start.sh" ]
